@@ -16,16 +16,17 @@ import signup from './pages/signup';
 import login from './pages/login';
 
 
-const theme = createMuiTheme({themeFile});
+const theme = createMuiTheme(themeFile);
 
 let authenticated;
 const token = localStorage.FBIdToken;
 if(token){
  const decodedToken = jwtDecode(token);
  console.log(decodedToken);
+ console.log(Date.now());
  if(decodedToken.exp * 1000 < Date.now()){
    window.location.href = '/login';
-   authenticted = false;
+   authenticated = false
  } else {
    authenticated = true;
  }
@@ -41,8 +42,8 @@ class App extends Component {
           <div className="container">
              <Switch>
                <Route exact path="/" component={home} />
-               <AuthRoute exact path="/login" component={login} />
-               <AuthRoute exact path="/signup" component={signup} />
+               <AuthRoute exact path="/login" component={login} authenticated={authenticated}/>
+               <AuthRoute exact path="/signup" component={signup} authenticated={authenticated}/>
              </Switch>
           </div>
          </Router>
