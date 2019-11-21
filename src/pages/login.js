@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = (theme) => ({
-    ...theme
+      ...theme.spreadStyle
 })
 
 
