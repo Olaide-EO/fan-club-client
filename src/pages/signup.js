@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import logo from '../images/favicon.ico';
